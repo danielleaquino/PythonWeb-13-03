@@ -7,13 +7,15 @@
     <title>Alunos</title>      
 </head>
 <body>
-    {%for i in post%}
-    <h1>{{i.titulo}}</h1>
-    <p> {{i.texto}}
-    <p>
-        <i>
-            <h2>{{i.data_criacao}} </h2>
-        </i>
-        {%endfor%}
+    <div class ="conteudo_principal">
+        <h1>Blog Aula Ocean</h1>
+        <div class="nav">
+            {%if not session.logado%}
+              <a href=""> Login</a>
+            {%else%}    
+            <a href=""> Logout</a>
+          {%endif%}
+        </div>
+    </div>
 </body>
 </html>
