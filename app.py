@@ -7,9 +7,7 @@ DATABASE = "banco.bd"
 
 SECRET_KEY = "1234"
 
-app.configure.from_objetc(__name__)
-
-@app.route("/")
+app.config.from_object(__name__)
 
 def conectar():
     return sqlite3.connect(DATABASE)
@@ -18,8 +16,12 @@ def before_request():
     g.bd = conectar()
 
 
-def teardown_request(f):
+def teardown_request():
     g.bd.close
 
+@app.route("/")
 def ola():
-    return render_template("hello.html")   
+    nomeUsuario = "Danielle"
+    listaUsuario = ["Lorena", "Daniel","Louise","Demethrius"]
+    post = {"titulo":"Meu titulo", "texto": "Meu texto", "data_criacao":"27/03/2024"}
+    return render_template("hello.html",post=post)   
