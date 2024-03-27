@@ -7,14 +7,13 @@
     <title>Alunos</title>      
 </head>
 <body>
-    {%for i in nome%}
-    <h1>Olá
-        {% if not i%}
-        Usuário desconhecido
-        {%else%}
-        {{i}}
-        {%endif%}
-    </h1>
-    {%endfor%}
+    {%for i in post%}
+    <h1>{{i.titulo}}</h1>
+    <p> {{i.texto}}
+    <p>
+        <i>
+            <h2>{{i.data_criacao}} </h2>
+        </i>
+        {%endfor%}
 </body>
 </html>
